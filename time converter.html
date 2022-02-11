@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+    let counter = 0;
+
+    //JSX에서는 for property class property를 사용할 수 없다.
+    // for 는 htmlFor, class는 className으로 치환해서 사용해야한다.
+
+    const App = () => {
+      const[]
+      return (
+        <div>
+          <h1>Super Converter</h1>
+          <label htmlFor="minute">Minutes</label>
+          <input id="minute" placeholder="Minute" type="number" />
+          <label htmlFor="hour">Hours</label>
+          <input id="hour" placeholder="Hours" type="number" />
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
