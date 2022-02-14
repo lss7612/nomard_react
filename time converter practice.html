@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const App = () => {
+        const [amount, setAmount] = React.useState(0);
+        const [inverted, setInverted] = React.useState(false);
+        const onChange = (e) => {
+          setAmount(e.target.value);
+        };
+        const reset = () => {
+          setAmount(0);
+        };
+        const onFlip = () => {
+          reset();
+          setInverted(!inverted);
+        };
+        return (
+          <div>
+            <h1>Time Converter</h1>
+            <label htmlFor="minutes">Minutes</label>
+            <input
+              type="number"
+              id="minutes"
+              value={!inverted ? amount : amount * 60}
+              onChange={onChange}
+              disabled={inverted}
+            />
+            <br />
+            <label htmlFor="hours">Hour</label>
+            <input
+              type="number"
+              id="hours"
+              value={inverted ? amount : Math.round(amount / 60)}
+              onChange={onChange}
+              disabled={!inverted}
+            />
+            <br />
+            <button onClick={reset}>reset</button>
+            <button onClick={onFlip}>invert</button>
+          </div>
+        );
+      };
+
+      const root = document.getElementById("root");
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
