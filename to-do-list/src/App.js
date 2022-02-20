@@ -13,6 +13,8 @@ function App() {
       return;
     }
     setToDo("");
+    //리액트에서는 state인 toDo 를 직접 변경하는 것은 불가능하다.
+    //그래서 아래와 같이 구조분해 할당하여 toDo를 변경할 수 있다.
     setToDos((curArr) => [...curArr, toDo]);
   };
   return (
@@ -27,6 +29,12 @@ function App() {
         />
         <button>Add To Do</button>
       </form>
+      <hr />
+      <ul>
+        {toDos.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
